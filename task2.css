@@ -1,0 +1,66 @@
+body
+{
+    background: url('timetable.jpg') no-repeat;
+    background-size: cover;
+}
+.div1
+{
+    background:transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-color: black;
+    backdrop-filter: blur(20px);
+    height: 400px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    flex-direction: column;
+}
+.name-div
+{
+    margin-bottom: 20px;
+}
+.button-div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+.year-div
+{
+    display: inline-block;
+    vertical-align: top;
+}
+.dept-div
+{
+    display: inline-block;
+    padding-left: 45px;
+}
+.add-button
+{
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    border-style: solid;
+    width: 50px;
+}
+.time-text
+{
+    font-size: 30px;
+    font-weight: bold;
+}
+.time-button
+{
+    
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    border-style: solid;
+}
