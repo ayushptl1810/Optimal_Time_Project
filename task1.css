@@ -16,6 +16,7 @@ body
     margin-right: auto;
     margin-top: 150px;
     flex-direction: column;
+    border-radius: 10px;
 }
 .add-text
 {
@@ -29,6 +30,9 @@ body
     border-radius: 20px;
     cursor: pointer;
     border-style: solid;
+    height: 37px;
+    width: 59px;
+    transition: transform 0.3s ease;
 }
 .time-text
 {
@@ -43,4 +47,12 @@ body
     border-radius: 20px;
     cursor: pointer;
     border-style: solid;
+    height: 37px;
+    width: 59px;
+    transition: transform 0.3s ease;
+}
+
+.time-button:hover, .add-button:hover{
+    transform: scale(1.1);
+    background-color: rgba(214, 155, 44, 0.831)
 }

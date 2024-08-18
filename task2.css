@@ -18,19 +18,23 @@ body
     margin-right: auto;
     margin-top: 150px;
     flex-direction: column;
+    border-radius: 5px;
+    font-size: 20px;
 }
 .name-div
 {
-    margin-bottom: 20px;
+    margin-bottom: 27px;
 }
 .button-div
 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-right: 20px;
 }
+
+
 .year-div
 {
     display: inline-block;
@@ -41,6 +45,7 @@ body
     display: inline-block;
     padding-left: 45px;
 }
+
 .add-button
 {
     background-color: black;
@@ -48,5 +53,6 @@ body
     border-radius: 20px;
     cursor: pointer;
     border-style: solid;
-    width: 50px;
+    height: 37px;
+    width: 59px;
 }
