@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="task1.css"> -->
+    <link rel="stylesheet" href="static/task2.css">
 </head>
 <body>
-    <div>
+    <div class="div1">
         <form method="post">
-            <div>
+            <div class="name-div">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name">
             </div>
-            <div>
-                <label for="year_tag">Year Tag:</label>
+            <div class="year-div">
+                <label for="year_tag">Year Tag:</label><br>
                 <input type="radio" id="junior" name="year_tag" value="junior">
                 <label for="junior">Junior</label><br> 
                 <input type="radio" id="senior" name="year_tag" value="senior">
                 <label for="senior">Senior</label><br> 
+                <input type="radio" id="super-senior" name="year_tag" value="super-senior">
+                <label for="senior">Super-Senior</label><br> 
             </div>
-            <div>
-                <label for="dept">Department Tags:</label>
+            <div class="dept-div">
+                <label for="dept">Department Tags:</label><br>
                 <input type="radio" id="coding" name="dept" value="coding">
                 <label for="coding">Coding</label><br> 
                 <input type="radio" id="elex" name="dept" value="elex">
@@ -31,7 +33,7 @@
                 <input type="radio" id="marketing" name="dept" value="marketing">
                 <label for="marketing">Marketing</label><br>
             </div>
-            <div>
+            <div class="button-div">
                 <button type="submit" class="add-button">Add</button>
             </div>
         </form>
