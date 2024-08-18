@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="static/task2.css">
+    <link rel="stylesheet" href="static\task2.css">
 </head>
 <body>
     <div class="div1">
@@ -34,10 +34,11 @@
                 <label for="marketing">Marketing</label><br>
             </div>
             <div class="button-div">
-                <button type="submit" class="add-button">Add</button>
+                
+                <button type="submit" class="button add-button">Add</button>
+                <a href="{{ url_for('home') }}"><button class="button back-button">Go back</button></a>
             </div>
         </form>
-        <a href="{{ url_for('home') }}"><button class="add-button">Go back</button></a>
     </div>
 </body>
 </html>

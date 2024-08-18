@@ -1,5 +1,5 @@
 body{
-    background: url('image/timetable.jpg');
+    background: url('timetable.jpg');
     background-size: cover;
 }
 .div1
@@ -22,13 +22,17 @@ body{
     font-weight: bold;
     
 }
-.add-button
+.button
 {
     background-color: black;
     color: white;
     border-radius: 20px;
     cursor: pointer;
     border-style: solid;
+}
+.add-button
+{
+   
     margin-top: 5px;
 }
 .time-text
@@ -38,12 +42,6 @@ body{
 }
 .time-button
 {
-    
-    background-color: black;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    border-style: solid;
     margin-top: 20px;
 }
 .filter-button

@@ -1,6 +1,6 @@
 body
 {
-    background: url('image/timetable.jpg') no-repeat;
+    background: url('timetable.jpg') no-repeat;
     background-size: cover;
 }
 .div1
@@ -46,13 +46,21 @@ body
     padding-left: 45px;
 }
 
-.add-button
+.button
 {
     background-color: black;
     color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     border-style: solid;
     height: 37px;
     width: 59px;
+}
+.back-button
+{
+    margin-left: 10px;
+}
+.add-button
+{
+    margin-right: 10px;
 }
