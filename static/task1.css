@@ -1,14 +1,13 @@
-body
-{
-    background: url('image/timetable.jpg') no-repeat;
+body{
+    background: url('image/timetable.jpg');
     background-size: cover;
 }
 .div1
 {
     background:transparent;
     backdrop-filter: blur(20px);
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,12 +15,12 @@ body
     margin-right: auto;
     margin-top: 150px;
     flex-direction: column;
-    border-radius: 10px;
 }
 .add-text
 {
     font-size: 30px;
     font-weight: bold;
+    
 }
 .add-button
 {
@@ -30,9 +29,7 @@ body
     border-radius: 20px;
     cursor: pointer;
     border-style: solid;
-    height: 37px;
-    width: 59px;
-    transition: transform 0.3s ease;
+    margin-top: 5px;
 }
 .time-text
 {
@@ -47,12 +44,14 @@ body
     border-radius: 20px;
     cursor: pointer;
     border-style: solid;
-    height: 37px;
-    width: 59px;
-    transition: transform 0.3s ease;
+    margin-top: 20px;
 }
-
-.time-button:hover, .add-button:hover{
-    transform: scale(1.1);
-    background-color: rgba(214, 155, 44, 0.831)
+.filter-button
+{
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    border-style: solid;
+    margin-bottom: 15px;
 }

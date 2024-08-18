@@ -12,7 +12,37 @@
             <p class="add-text">Add student</p>
             <a href="{{ url_for('add_student') }}"><button class="add-button">Add student</button></a>
             <p class="time-text">Find optimal time</p>
-            <button class="time-button" >Find</button>
+            <a href="{{ url_for('filter') }}"><button class="time-button" >Add filters</button></a>
+            {% if results %}
+            <table border="1">
+                <thead>
+                    <tr> 
+                    <th></th>
+                    <th>Name</th>
+                    <th>Year Tag</th>
+                    <th>Department</th>
+                    <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ loop.index }}</td> 
+                    <td>{{ result.name }}</td>
+                    <td>{{ result.tag }}</td>
+                    <td>{{ result.dept }}</td>
+                   <td>
+                    <form method="POST" action="{{ url_for('remove') }}">
+                        <input type="hidden" name="id" value="{{ result.id }}">
+                        <button class="add-button">Remove</button>
+                    </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+           <button class="time-button" >Find</button>
+           {% endif %}
     </div>
 </body>
 </html>

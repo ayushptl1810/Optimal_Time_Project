@@ -15,28 +15,29 @@
             </div>
             <div class="year-div">
                 <label for="year_tag">Year Tag:</label><br>
-                <input type="radio" id="junior" name="year_tag" value="junior">
+                <input type="radio" id="junior" name="year_tag" value="Junior">
                 <label for="junior">Junior</label><br> 
-                <input type="radio" id="senior" name="year_tag" value="senior">
+                <input type="radio" id="senior" name="year_tag" value="Senior">
                 <label for="senior">Senior</label><br> 
-                <input type="radio" id="super-senior" name="year_tag" value="super-senior">
+                <input type="radio" id="super-senior" name="year_tag" value="Super-Senior">
                 <label for="senior">Super-Senior</label><br> 
             </div>
             <div class="dept-div">
                 <label for="dept">Department Tags:</label><br>
-                <input type="radio" id="coding" name="dept" value="coding">
+                <input type="radio" id="coding" name="dept" value="Coding">
                 <label for="coding">Coding</label><br> 
-                <input type="radio" id="elex" name="dept" value="elex">
+                <input type="radio" id="elex" name="dept" value="Elex">
                 <label for="elex">Elex</label><br>
-                <input type="radio" id="mech" name="dept" value="mech">
+                <input type="radio" id="mech" name="dept" value="Mech">
                 <label for="mech">Mech</label><br>
-                <input type="radio" id="marketing" name="dept" value="marketing">
+                <input type="radio" id="marketing" name="dept" value="Marketing">
                 <label for="marketing">Marketing</label><br>
             </div>
             <div class="button-div">
                 <button type="submit" class="add-button">Add</button>
             </div>
         </form>
+        <a href="{{ url_for('home') }}"><button class="add-button">Go back</button></a>
     </div>
 </body>
 </html>

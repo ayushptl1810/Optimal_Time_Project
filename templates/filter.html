@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <metata charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <link rel="stylesheet" href="static/task3.css">
+</head>
+<body>
+    <div class="main-div">
+        <div class="div1">
+            <form method="post" action="{{ url_for('filter')}}">
+                <h1>Filter by choice:-</h1>
+                <div class="name-div">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="{{ name }}">
+                </div>
+                <div class="year-div">
+                    <label for="year_tag">Year Tag:</label><br>
+                    <input type="checkbox" id="junior" name="year_tag" value="Junior">
+                    <label for="junior">Junior</label><br> 
+                    <input type="checkbox" id="senior" name="year_tag" value="Senior">
+                    <label for="senior">Senior</label><br> 
+                    <input type="checkbox" id="super-senior" name="year_tag" value="Super-Senior">
+                    <label for="senior">Super-Senior</label><br> 
+                </div>
+                <div class="dept-div">
+                    <label for="dept">Department Tags:</label><br>
+                    <input type="checkbox" id="coding" name="dept" value="Coding">
+                    <label for="coding">Coding</label><br> 
+                    <input type="checkbox" id="elex" name="dept" value="Elex">
+                    <label for="elex">Elex</label><br>
+                    <input type="checkbox" id="mech" name="dept" value="Mech">
+                    <label for="mech">Mech</label><br>
+                    <input type="checkbox" id="marketing" name="dept" value="Marketing">
+                    <label for="marketing">Marketing</label><br>
+                </div>
+                <div class="button-div">
+                    <button type="submit" class="add-button">Filter</button>
+                </div>
+            </form>
+        </div>
+        {% if results %}
+        <div class="div2">
+            <table border="1">
+                <thead>
+                    <tr> 
+                    <th></th>
+                    <th>Name</th>
+                    <th>Year Tag</th>
+                    <th>Department</th>
+                    <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{ loop.index }}</td> 
+                        <td>{{ result.name }}</td>
+                        <td>{{ result.tag }}</td>
+                        <td>{{ result.dept }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('add_filter') }}">
+                                <input type="hidden" name="id" value="{{ result.id }}">
+                                <input type="hidden" name="name" value="{{ name }}">
+                                <input type="hidden" name="year_tag" value="{{ year_tags | join(',') }}">
+                                <input type="hidden" name="dept" value="{{ depts | join(',') }}">
+
+                                <button type="submit" class="add-button">Add</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+               </table>
+        </div>
+        {% endif %}
+        <a href="{{ url_for('home') }}"><button class="add-button">Go back</button></a>
+    </div>    
+</body>
+</html>
