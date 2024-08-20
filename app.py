@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
+import os
+
+
 
 app = Flask(__name__)
 
@@ -8,6 +12,10 @@ if __name__ == '__main__':
 
 app.config['SECRET_KEY'] = "SECRET"
 app.config['SQLALCHEMY_DATABASE_URI'] =  'sqlite:///timetable.db'
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg'}
+app.config['UPLOAD_FOLDER'] = 'image'
+
+
 db = SQLAlchemy(app)
 
 class Student(db.Model):
@@ -16,20 +24,26 @@ class Student(db.Model):
     tag = db.Column(db.String(16), nullable=False)
     dept = db.Column(db.String(16), nullable=False)
     selected_flag = db.Column(db.Boolean, default = False)
+    image = db.Column(db.String(64))
 
 with app.app_context():
     db.create_all()
+
 
 @app.route('/')
 def home():
     results = Student.query.filter_by(selected_flag = True).all()
     return render_template('home.html', results=results)
 
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS'] 
+
 @app.route('/add_student')
 def add_student():
     return render_template('add_student.html')
 
-@app.route('/add_student', methods = ['POST'])
+@app.route('/add_student', methods=['POST'])
 def add_student_post():
     name = request.form.get('name')
     tag = request.form.get('year_tag')
@@ -40,9 +54,20 @@ def add_student_post():
     
     new_student = Student(name=name, tag=tag, dept=dept)
     db.session.add(new_student)
-    db.session.commit()
+    db.session.flush()  
 
+    if 'timetable' in request.files:
+        file = request.files['timetable']
+        
+        if file.filename and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            new_filename = f"timetable_{new_student.id}"
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_filename))
+            new_student.image = new_filename
+
+    db.session.commit()  
     return redirect(url_for('add_student'))
+
 
 @app.route('/filter')
 def filter():
@@ -69,6 +94,7 @@ def filter_post():
 
     results = query.all()
     return render_template('filter.html', results=results, name=name, tag=tags, dept=depts)
+
 
 @app.route('/add_filter', methods=['POST'])
 def add_filter():
