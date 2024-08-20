@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 import os
-
+from main_image_detector import process_image
 
 
 app = Flask(__name__)
@@ -37,7 +37,7 @@ def home():
 
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS'] 
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
 @app.route('/add_student')
 def add_student():
@@ -59,11 +59,12 @@ def add_student_post():
     if 'timetable' in request.files:
         file = request.files['timetable']
         
-        if file.filename and allowed_file(file.filename):
+        if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            new_filename = f"timetable_{new_student.id}"
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_filename))
-            new_student.image = new_filename
+            new_filename = f"timetable_{new_student.id}_{filename}"
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
+            file.save(file_path)
+            new_student.image = new_filename  
 
     db.session.commit()  
     return redirect(url_for('add_student'))
@@ -135,3 +136,23 @@ def remove():
     db.session.commit()
 
     return redirect(url_for('home'))
+
+@app.route('/find_optimal', methods = ['POST'])
+def find_optimal():
+    student_ids = request.form.getlist('student_ids')
+    csv_files = []
+    for id in student_ids:
+        student = Student.query.get(id)
+        image_filename = student.image
+        image_path = os.path.join(app.config['UPLOAD_FOLDER'], image_filename)
+        student.selected_flag = False
+
+        csv_file_name = process_image(image_path)
+        csv_file_path = os.path.join(csv_file_name)
+        csv_files.append(csv_file_path)
+
+    optimal_time = 10
+    
+    return render_template('home.html', optimal_time=optimal_time)
+
+

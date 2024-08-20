@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import subprocess
+import datetime
 
 class OcrToTableTool:
 
@@ -20,7 +21,10 @@ class OcrToTableTool:
         self.club_all_bounding_boxes_by_similar_y_coordinates_into_rows()
         self.sort_all_rows_by_x_coordinate()
         self.crop_each_bounding_box_and_ocr()
-        self.generate_csv_file()
+        filename = self.generate_csv_file()
+        return filename
+
+        
 
     def threshold_image(self):
         return cv2.threshold(self.grey_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
@@ -113,9 +117,13 @@ class OcrToTableTool:
         return output
 
     def generate_csv_file(self):
-        with open("output.csv", "w") as f:
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"output_{timestamp}.csv"
+        with open(filename, "w") as f:
             for row in self.table:
                 f.write(",".join(row) + "\n")
+        
+        return filename
 
     def store_process_image(self, file_name, image):
         path = "./process_images/ocr_table_tool/" + file_name

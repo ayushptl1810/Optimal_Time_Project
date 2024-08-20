@@ -41,7 +41,15 @@
                 {% endfor %}
                 </tbody>
             </table>
-           <button class="time-button" >Find</button>
+            <form method="POST" action="{{ url_for('find_optimal') }}" id="find-optimal-form">
+                {% for result in results %}
+                    <input type="hidden" name="student_ids" value="{{ result.id }}">
+                {% endfor %}
+                <button type="submit" class="time-button">Find Optimal Time</button>
+            </form>
+           {% endif %}
+           {% if optimal_time %}
+           <p>Most optimal time to conduct a meet is {{ optimal_time }}</p>
            {% endif %}
     </div>
 </body>

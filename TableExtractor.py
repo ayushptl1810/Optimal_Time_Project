@@ -5,9 +5,11 @@ class TableExtractor:
 
     def __init__(self, image_path):
         self.image_path = image_path
+        print(image_path)
 
     def execute(self):
         self.read_image()
+        print(self.image)
         self.store_process_image("0_original.jpg", self.image)
         self.convert_image_to_grayscale()
         self.store_process_image("1_grayscaled.jpg", self.grayscale_image)
