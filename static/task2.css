@@ -3,9 +3,9 @@ body
     background: url('timetable.jpg') no-repeat;
     background-size: cover;
     font-size: 17px;
-
 }
-button {
+button 
+{
     width: 80px;
     height: 50px;
     font-size: 17px;
@@ -17,21 +17,23 @@ button {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-color: black;
     backdrop-filter: blur(20px);
-    height: 500px;
-    width: 500px;
+    height: 450px;
+    width: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 125px;
+    margin-top: 100px;
     flex-direction: column;
     border-radius: 5px;
     font-size: 20px;
+    padding-left: 10px;
 }
 .name-div
 {
     margin-bottom: 27px;
+    padding-left: 10px;
 }
 .button-div
 {
@@ -40,6 +42,7 @@ button {
     justify-content: center;
     margin-top: 20px;
     margin-right: 20px;
+    padding-left: 7px;
 }
 .button2-div
 {
@@ -50,18 +53,18 @@ button {
     margin-top: 20px;
     margin-right: 20px;
     gap: 10px;
+    padding-left: 10px;
 }
-
-
 .year-div
 {
     display: inline-block;
     vertical-align: top;
+    padding-left: 10px;
 }
 .dept-div
 {
     display: inline-block;
-    padding-left: 45px;
+    padding-left: 55px;
 }
 
 .button
@@ -72,10 +75,16 @@ button {
     border-style: solid;
 
 }
-.back-button {
-    display: block;
+.back-button-div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back-button 
+{
     margin-top: 20px;
-    margin-right: 20px; 
+    margin-right: 10px; 
 }
 .add-button
 {
