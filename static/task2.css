@@ -2,6 +2,14 @@ body
 {
     background: url('timetable.jpg') no-repeat;
     background-size: cover;
+    font-size: 17px;
+
+}
+button {
+    width: 80px;
+    height: 50px;
+    font-size: 17px;
+    border-radius: 8px;
 }
 .div1
 {
@@ -50,17 +58,17 @@ body
 {
     background-color: black;
     color: white;
-    border-radius: 10px;
     cursor: pointer;
     border-style: solid;
-    height: 37px;
-    width: 59px;
+
 }
-.back-button
-{
-    margin-left: 10px;
+.back-button {
+    display: block;
+    margin: 20px auto 0 auto; 
 }
 .add-button
 {
-    margin-right: 10px;
+    display: block;
+    margin: 20px auto 0 auto; 
+
 }

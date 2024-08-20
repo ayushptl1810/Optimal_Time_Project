@@ -1,6 +1,14 @@
 body{
     background: url('timetable.jpg');
     background-size: cover;
+    font-size: 17px;
+
+}
+button {
+    width: 80px;
+    height: 50px;
+    font-size: 17px;
+    border-radius: 8px;
 }
 .div1
 {
@@ -26,7 +34,6 @@ body{
 {
     background-color: black;
     color: white;
-    border-radius: 20px;
     cursor: pointer;
     border-style: solid;
 }
@@ -48,7 +55,6 @@ body{
 {
     background-color: black;
     color: white;
-    border-radius: 20px;
     cursor: pointer;
     border-style: solid;
     margin-bottom: 15px;

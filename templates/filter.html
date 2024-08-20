@@ -66,7 +66,7 @@
                                 <input type="hidden" name="year_tag" value="{{ year_tags | join(',') }}">
                                 <input type="hidden" name="dept" value="{{ depts | join(',') }}">
 
-                                <button type="submit" class="add-button">Add</button>
+                                <button type="submit" class="a-button">Add</button>
                             </form>
                         </td>
                     </tr>
@@ -75,7 +75,9 @@
                </table>
         </div>
         {% endif %}
-        <a href="{{ url_for('home') }}"><button class="add-button">Go back</button></a>
+        <div class="button-container">
+            <a href="{{ url_for('home') }}"><button class="add-button">Go back</button></a>
+        </div>
     </div>    
 </body>
 </html>
