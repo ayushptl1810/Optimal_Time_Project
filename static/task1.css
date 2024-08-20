@@ -9,6 +9,7 @@ button {
     height: 50px;
     font-size: 17px;
     border-radius: 8px;
+    margin: 5px 5px 5px;
 }
 .div1
 {
@@ -28,7 +29,6 @@ button {
 {
     font-size: 30px;
     font-weight: bold;
-    
 }
 .button
 {
@@ -39,8 +39,14 @@ button {
 }
 .add-button
 {
-   
     margin-top: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-style: solid;
+    width: 74px;
+    height: 40px;
+    padding: 2px;
 }
 .time-text
 {
@@ -50,6 +56,10 @@ button {
 .time-button
 {
     margin-top: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-style: solid;
 }
 .filter-button
 {
@@ -58,4 +68,14 @@ button {
     cursor: pointer;
     border-style: solid;
     margin-bottom: 15px;
+}
+.add2-button
+{
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-style: solid;
+    width: 80px;
+    height: 45px;
 }
