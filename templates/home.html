@@ -49,8 +49,21 @@
             </form>
            {% endif %}
            {% if optimal_time %}
-           <p>Most optimal time to conduct a meet is {{ optimal_time }}</p>
-           {% endif %}
+    <h3>Most Optimal Times to Conduct a Meeting</h3>
+    <ul>
+        {% for day, times in optimal_time.items() %}
+            <li>
+                <strong>{{ day }}:</strong>
+                {% if times %}
+                    {{ times | join(', ') }}
+                {% else %}
+                    No optimal time available
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
     </div>
 </body>
 </html>

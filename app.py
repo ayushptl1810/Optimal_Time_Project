@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 import os
 from main_image_detector import process_image
+from algo import find_best_time_from_csv
 
 
 app = Flask(__name__)
@@ -151,7 +152,7 @@ def find_optimal():
         csv_file_path = os.path.join(csv_file_name)
         csv_files.append(csv_file_path)
 
-    optimal_time = 10
+    optimal_time = find_best_time_from_csv(*csv_files)
     
     return render_template('home.html', optimal_time=optimal_time)
 
