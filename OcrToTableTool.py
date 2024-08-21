@@ -117,7 +117,7 @@ class OcrToTableTool:
         return output
 
     def generate_csv_file(self):
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.datetime.now().strftime("%H:%M:%S")
         filename = f"output_{timestamp}.csv"
         with open(filename, "w") as f:
             for row in self.table:

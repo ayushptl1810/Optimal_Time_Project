@@ -37,8 +37,8 @@ def sortTimetable(timetable):
     return timetable
 
 # Load the CSV file
-db1 = pd.read_csv("first.csv")
-db2 = pd.read_csv("second.csv")
+db1 = pd.read_csv("output_20:19:51.csv")
+db2 = pd.read_csv("output_20:18:54.csv")
 
 # Create and sort the timetable
 timetable1 = createTimetable(db1)
